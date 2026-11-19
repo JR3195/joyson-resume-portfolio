@@ -1639,8 +1639,8 @@ body{color:var(--joy-ink);-webkit-font-smoothing:antialiased;text-rendering:opti
 
 /* ===== v99: clock ring + liquid bubbles ===== */
 .tree.crot .nd.cat{transition:opacity .35s,box-shadow .35s,background .35s!important}
-.tree.foc .nd.cat:not(.hl){opacity:.14}
-.tree.foc #wires .wire.dim,.tree.foc #wires .knot.dim{opacity:.12}
+.tree.foc .nd.cat:not(.hl){opacity:.8}
+.tree.foc #wires .wire.dim,.tree.foc #wires .knot.dim{opacity:.55}
 .catp .cpl{gap:14px 12px}
 .lqb{display:flex;flex-direction:column;align-items:center;gap:6px;width:82px}
 .lqb svg{width:62px;height:62px;display:block;overflow:visible}
@@ -1669,6 +1669,21 @@ body{color:var(--joy-ink);-webkit-font-smoothing:antialiased;text-rendering:opti
 .sknav.cmp{justify-content:space-between;pointer-events:none}.sknav.cmp .xc-steps{display:none}.sknav.cmp>button{pointer-events:auto;padding:6px 12px;font-size:13px}.sknav.cmp>button span{display:none}
 
 .lqb span{min-height:2.4em}
+
+/* ===== v109: friends' feedback ===== */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+.hiw text{text-rendering:geometricPrecision;stroke-opacity:0;transition:stroke-dashoffset .95s cubic-bezier(.45,.05,.3,1),fill-opacity .45s ease .7s,stroke-opacity .5s ease 1.3s}
+.pre .hiw text{stroke-opacity:1}
+@media (max-width:600px){
+ #s-about .who-l{min-height:0!important}
+ #s-about .who-r{place-items:start center!important;align-items:start!important}
+ #s-about .who-r>.wv{align-self:start!important}
+ .tab-note{min-height:3.2em!important;line-height:1.6}
+ #s-exp .exp-sticky>.inner:has(>.xc-nav){order:9;margin-top:12px}
+ #s-skills .tree .nd.cat .lbl{font-size:10.5px;width:84px;top:calc(100% + 6px)}
+ .lqb{width:54px!important}.lqb svg{width:40px!important;height:40px!important}.lqb span{font-size:9.5px!important}
+ .catp .cpt{font-size:10px}
+}
 </style>
 
 <div id="bgdots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
@@ -2257,8 +2272,8 @@ var FAN=[[.08,.3],[.22,.36],[.36,.41],[.5,.44],[.64,.41],[.78,.36],[.92,.3]],FAN
   o+='</g><rect x=\"153\" y=\"311\" width=\"142\" height=\"14\" rx=\"7\" fill=\"#fff\" stroke=\"'+INK+'\" stroke-width=\"1\"/><text x=\"160\" y=\"320\" '+F+' font-size=\"5.4\" font-weight=\"700\" fill=\"#a39d93\">Message AI&#8230;</text><circle cx=\"288\" cy=\"318\" r=\"4.6\" fill=\"'+OR+'\"/><path d=\"M286 318 h4 M288.4 316.2 l1.8 1.8 -1.8 1.8\" stroke=\"#fff\" stroke-width=\"1\" fill=\"none\" stroke-linecap=\"round\"/></g>';
   return o}
  function spk(x){return R(x,232,82,148,D,8)+'<circle class="ln" cx="'+(x+41)+'" cy="268" r="12" fill="'+INK+'"/><circle class="ln" cx="'+(x+41)+'" cy="324" r="27" fill="'+INK+'"/><circle class="beat" style="animation-delay:'+(x>500?'-.3s':'0s')+'" cx="'+(x+41)+'" cy="324" r="19" fill="none" stroke="'+OR+'" stroke-width="2.5"/><circle cx="'+(x+41)+'" cy="324" r="7" fill="'+D2+'"/>'}
- var g='<g class="mstand"><path class="ln" d="M584 342 h32 l5 112 h-42 z" fill="'+D+'"/><path class="ln" d="M546 470 q0 -15 16 -16 h76 q16 1 16 16 z" fill="'+D2+'"/></g>';
- g+='<g class="pmon"><path class="ln" d="M214 340 h20 l3 114 h-26 z" fill="'+D+'"/><path class="ln" d="M184 470 q0 -14 14 -15 h52 q14 1 14 15 z" fill="'+D2+'"/>'+R(140,36,168,304,INK,10)+'<circle cx="224" cy="40.5" r="1.8" fill="'+OR+'"/>'+AIC()+'</g></g>'+R(110,470,980,16,WOOD,4)+'<rect x="112" y="482" width="976" height="3" fill="#b98a55"/>';
+ var g='<g class="mstand"><rect class="ln" x="530" y="452" width="140" height="10" rx="5" fill="'+D2+'"/><rect class="ln" x="593" y="338" width="14" height="118" rx="3" fill="'+D+'"/><rect class="ln" x="576" y="336" width="48" height="12" rx="4" fill="'+D2+'"/></g>';
+ g+='<g class="pmon"><rect class="ln" x="190" y="452" width="68" height="10" rx="5" fill="'+D2+'"/><rect class="ln" x="217" y="336" width="14" height="120" rx="3" fill="'+D+'"/><rect class="ln" x="208" y="334" width="32" height="11" rx="4" fill="'+D2+'"/>'+R(140,36,168,304,INK,10)+'<circle cx="224" cy="40.5" r="1.8" fill="'+OR+'"/>'+AIC()+'</g></g>'+R(110,470,980,16,WOOD,4)+'<rect x="112" y="482" width="976" height="3" fill="#b98a55"/>';
  // pen holder (nudged right to make room for the joystick)
  var PEN='<g transform="translate(67 90)">';PEN+='<path d="M78 336 L74 300 M82 336 L84 300" stroke="#7d7870" stroke-width="2.4" stroke-linecap="round"/><circle cx="70" cy="293" r="6.5" fill="none" stroke="'+OR+'" stroke-width="3.4"/><circle cx="86" cy="292" r="6.5" fill="none" stroke="'+OR+'" stroke-width="3.4"/>'+'<g transform="rotate(14 112 330)"><rect class="ln" x="107" y="290" width="10" height="44" rx="3" fill="#e9b949"/><path d="M109 290 l3 -9 l3 9z" fill="#cfc6b8" stroke="'+INK+'" stroke-width="1.2"/><rect x="110" y="298" width="4" height="10" rx="1" fill="'+INK+'"/></g>'+'<line x1="100" y1="336" x2="103" y2="284" stroke="'+INK+'" stroke-width="4" stroke-linecap="round"/><line x1="103" y1="292" x2="103.4" y2="284" stroke="'+OR+'" stroke-width="4.6" stroke-linecap="round"/>'+'<line x1="88" y1="336" x2="92" y2="294" stroke="#2f5fa8" stroke-width="3.4" stroke-linecap="round"/>'+'<line class="ln" x1="84" y1="336" x2="76" y2="296"/><line x1="94" y1="336" x2="96" y2="290" stroke="'+OR+'" stroke-width="3.2" stroke-linecap="round"/><line class="ln" x1="104" y1="336" x2="114" y2="300"/><line class="ln" x1="90" y1="336" x2="86" y2="306" stroke="#7d7870"/><path d="M96 290 l-1.6 -7 l3.2 0z" fill="'+INK+'"/>';
 PEN+=R(66,330,54,50,D,6)+'<rect x="68" y="340" width="50" height="3" fill="'+OR+'"/><rect x="74" y="352" width="38" height="20" rx="3" fill="none" stroke="#3a3835" stroke-width="1.4"/>';
@@ -2359,7 +2374,7 @@ function t_mR(){var B=t_box();return t_mob()?Math.min(B[0]*.29,112):Math.max(84,
 function t_mRy(){return t_mR()}
 function t_mC(){var B=t_box();if(t_mob())return [.5,(t_mRy()+74)/B[1]];var Rr=t_mR();if(t_wide()&&(ST==='leaf'||ST==='sub'))return [.34,.5];return t_wide()?[.5,(Rr*1.19+40)/B[1]]:[.5,(t_mRy()+70)/B[1]]}
 function t_ring(a,R){var B=t_box(),c=t_mC();a=a*Math.PI/180;return [c[0]+Math.cos(a)*R/B[0],c[1]+Math.sin(a)*R/B[1]]}
-function t_sizes(){var W=t_box()[0];var SR=(document.getElementById('sdot')||{}).offsetWidth/2||28;if(t_mob())return {r:SR,c:23,l:21};var R=t_mR();return {r:SR,c:Math.max(24,Math.round(R*.19)),l:Math.max(22,Math.round(R*.17))}}
+function t_sizes(){var W=t_box()[0];var SR=(document.getElementById('sdot')||{}).offsetWidth/2||28;if(t_mob())return {r:SR,c:20,l:19};var R=t_mR();return {r:SR,c:Math.max(24,Math.round(R*.19)),l:Math.max(22,Math.round(R*.17))}}
 function t_place(el,x,y,d){el.style.left=(x*100)+'%';el.style.top=(y*100)+'%';el.style.width=el.style.height=(d*2)+'px'}
 function t_mfocus(){return ST==='leaf'||ST==='sub'}
 function t_catPos(i){if(t_mfocus()&&i===SEL)return t_mC();return t_ring(-90+(i-3)*360/7+CROT,t_mR())}
@@ -2480,7 +2495,12 @@ function upCalc(){lockHint();var B=t_box(),RC=t_mC(),S=t_sizes(),cur=parseFloat(
 var skNav=document.createElement('div');skNav.className='xc-nav sknav hide';skNav.innerHTML='<button type="button" class="skp">\u2190 <span>Previous</span></button><div class="xc-steps" role="group" aria-label="Jump to an area">'+TR.map(function(t,i){return '<button type="button" title="'+t.n+'" aria-label="'+t.n+'">'+(i+1)+'</button>'}).join('')+'</div><button type="button" class="go skn"><span>Next</span> \u2192</button>';tree.appendChild(skNav);
 skNav.querySelector('.skp').onclick=function(){focus(((HLI<0?0:HLI)+6)%7)};skNav.querySelector('.skn').onclick=function(){focus(((HLI<0?-1:HLI)+1)%7)};
 [].slice.call(skNav.querySelectorAll('.xc-steps button')).forEach(function(b,i){b.onclick=function(){focus(i)}});
-var _drw3=t_draw;t_draw=function(){_drw3();if(ST!=='desk'&&!tree.classList.contains('crot'))tree.style.setProperty('--up',upCalc()+'px');var on=ST==='cats'&&HLI>=0;cats.forEach(function(b,i){b.classList.toggle('hl',on&&i===HLI)});catP.classList.toggle('hide',!on);
+function lblPlace(){var mob=t_mob();cats.forEach(function(b,i){var l=b.querySelector('.lbl');if(!l)return;if(ST!=='cats'){l.removeAttribute('style');return}var a=catAng(i)*Math.PI/180,sn=Math.sin(a),cs=Math.cos(a),g=mob?8:12,st=l.style;
+  if(sn<-.4){st.cssText='top:auto;bottom:calc(100% + '+g+'px);left:50%;right:auto;transform:translateX(-50%);text-align:center'}
+  else if(sn>.4){st.cssText='top:calc(100% + '+g+'px);bottom:auto;left:50%;right:auto;transform:translateX(-50%);text-align:center'}
+  else if(cs>0){st.cssText='top:50%;bottom:auto;left:calc(100% + '+g+'px);right:auto;transform:translateY(-50%);text-align:left;width:'+(mob?'64px':'110px')}
+  else{st.cssText='top:50%;bottom:auto;right:calc(100% + '+g+'px);left:auto;transform:translateY(-50%);text-align:right;width:'+(mob?'64px':'110px')}})}
+var _drw3=t_draw;t_draw=function(){_drw3();lblPlace();if(ST!=='desk'&&!tree.classList.contains('crot'))tree.style.setProperty('--up',upCalc()+'px');var on=ST==='cats'&&HLI>=0;cats.forEach(function(b,i){b.classList.toggle('hl',on&&i===HLI)});catP.classList.toggle('hide',!on);
  if(on){var B=t_box(),RC=t_mC(),S=t_sizes();var cpt=RC[1]*B[1]+t_mR()+S.c+40;catP.style.left=(RC[0]*B[0])+'px';catP.style.top=cpt+'px';skNav.style.left=(RC[0]*B[0])+'px';var cmp=t_mob()||B[1]<520;skNav.classList.toggle('cmp',cmp);skNav.style.width=cmp?Math.min(B[0]*.94,catP.offsetWidth+150)+'px':'';skNav.style.top=(cmp?cpt-8:cpt+catP.offsetHeight+22)+'px'}
  skNav.classList.toggle('hide',!on);[].slice.call(skNav.querySelectorAll('.xc-steps button')).forEach(function(b,i){b.classList.toggle('on',i===HLI)});
  if(ST==='cats'&&CATAN)setTimeout(function(){CATAN=false},50)};
@@ -2753,11 +2773,11 @@ document.addEventListener('click',function(e){var d=e.target.closest&&e.target.c
   var sd=document.getElementById('sdot'),it=null;function arm(){if(!sd)return;sd.classList.remove('idle');clearTimeout(it);it=setTimeout(function(){if(vis&&!tree.classList.contains('open'))sd.classList.add('idle');else arm()},2500)}
   ['touchstart','scroll','click'].forEach(function(e){addEventListener(e,arm,{passive:true})});arm()}
  /* previous / next section buttons on every page */
- var NAMES={'s-hi':'Hi','s-about':'About me','s-works':'My works','s-ind':'Industries','s-exp':'Experience','s-skills':'Skills','s-edu':'Education','s-thanks':'Thank you'};
- var secs=[].slice.call(document.querySelectorAll('section[id^="s-"]')).filter(function(x){return NAMES[x.id]});
+ var NAMES={'s-hi':'Hi','s-about':'About me','s-short':'In short','s-works':'My works','s-ind':'Industries','s-exp':'Experience','s-skills':'Skills','s-edu':'Education','s-thanks':'Thank you'};
+ var secs=[].slice.call(document.querySelectorAll('[id^="s-"]')).filter(function(x){return NAMES[x.id]});function topOf(x){return x.getBoundingClientRect().top+scrollY}
  var gn=document.createElement('nav');gn.className='gnav';gn.setAttribute('aria-label','Previous and next section');gn.innerHTML='<button type="button" class="gp"></button><button type="button" class="gx"></button>';document.body.appendChild(gn);
  var gp=gn.firstChild,gx=gn.lastChild,ci=-1;
- function cur(){var y=scrollY+innerHeight*.5,i=0;secs.forEach(function(x,j){if(x.offsetTop<=y)i=j});return i}
+ function cur(){var y=scrollY+innerHeight*.5,i=0;secs.forEach(function(x,j){if(topOf(x)<=y)i=j});return i}
  function upd(){var i=cur();if(i===ci)return;ci=i;gp.hidden=i===0;gx.hidden=i===secs.length-1;if(i>0)gp.innerHTML='<b>↑</b> '+NAMES[secs[i-1].id];if(i<secs.length-1)gx.innerHTML=NAMES[secs[i+1].id]+' <b>↓</b>'}
  function go(d){var t=secs[cur()+d];if(!t)return;if(window.__smoothTo)window.__smoothTo(t);else t.scrollIntoView({behavior:'smooth'})}
  gp.onclick=function(){go(-1)};gx.onclick=function(){go(1)};addEventListener('scroll',upd,{passive:true});addEventListener('resize',function(){ci=-1;upd()});upd();
@@ -2805,6 +2825,19 @@ document.addEventListener('click',function(e){var d=e.target.closest&&e.target.c
   for(var z=0;z<14;z++)at(9200+z*420,function(){var l=L[Math.floor(Math.random()*L.length)];l.classList.remove('on');setTimeout(function(){fill(l);l.classList.add('on')},380)});
   at(15600,function(){M.forEach(function(m){m.classList.remove('on')});CP.classList.remove('on');L.forEach(function(l){l.classList.remove('on')})});at(16600,run)}
  run()})();
+</script>
+<script>
+(function(){
+ /* phones: shrink "In short" and Education just enough so nothing hides under the bottom buttons */
+ var mq=matchMedia('(max-width:600px)'),SAFE=78,raf=0;
+ function fitEl(el,topY){el.style.zoom='';if(!mq.matches)return;var h=el.scrollHeight,av=innerHeight-SAFE-topY;if(h>av&&av>120)el.style.zoom=Math.max(.72,av/h).toFixed(3)}
+ function run(){raf=0;var ev=document.getElementById('endv'),ab=document.getElementById('ab'),ed=document.querySelector('#s-edu .inner'),es=document.getElementById('s-edu');
+  if(ev&&ab&&ab.classList.contains('fin'))fitEl(ev,ev.getBoundingClientRect().top<0?0:ev.getBoundingClientRect().top);
+  if(ed&&es){ed.style.zoom='';var t=ed.getBoundingClientRect().top-es.getBoundingClientRect().top;fitEl(ed,t)}}
+ function q(){if(!raf)raf=requestAnimationFrame(run)}
+ addEventListener('resize',q);addEventListener('load',q);if(document.fonts)document.fonts.ready.then(q);
+ var ab=document.getElementById('ab');if(ab)new MutationObserver(q).observe(ab,{attributes:true,attributeFilter:['class']});q();
+})();
 </script>
 
 </body></html>
